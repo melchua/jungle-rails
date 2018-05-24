@@ -51,6 +51,21 @@ main section.categories-show {
         font-size: 0.8em;
       }
 
+      aside.badge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        background-color: #e87676;
+        // border-top-right-radius: px;
+        // border-bottom-right-radius: 20px;
+        font-size: 0.8em;
+        border-radius: 5px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 15px;
+        border-top-right-radius: 0px;
+      }
+
       &:hover {
 
         border-color: #999;
