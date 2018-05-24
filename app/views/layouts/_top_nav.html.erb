@@ -48,9 +48,9 @@
           </a>
           <ul class="dropdown-menu">
             <% if current_user %>
-            <li><%= link_to 'Login', [:new, :session] %></li>
+             <li><%= link_to 'Logout', [:session], method: :delete %></li>
             <% else %>
-            <li><%= link_to 'Logout', [:sessions] %></li>
+              <li><%= link_to 'Login', [:new, :session] %></li>
             <% end %>
           </ul>
         </li>
