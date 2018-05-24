@@ -27,7 +27,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-       <li class="dropdown">
+        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
             <span class="text-danger"><%= fa_icon 'lock', text: 'Admin' %></span>
@@ -39,6 +39,22 @@
             <li><%= link_to 'Categories',  [:admin, :categories] %></li>
           </ul>
         </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+            <span class="text-success"><%= fa_icon 'user-secret', text: 'User' %></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <% if current_user %>
+             <li><%= link_to 'Logout', [:session], method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'Login', [:new, :session] %></li>
+            <% end %>
+          </ul>
+        </li>
+
         <li>
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
