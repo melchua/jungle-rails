@@ -1,0 +1,29 @@
+
+
+
+<% if product = Product.find_by(id: product_id) %>
+  <tr>
+    <td>
+      <%= image_tag product.image.tiny %>
+    </td>
+    <td>
+      <%= product.name %>
+    </td>
+    <td>
+      <p><%= quantity %></p>
+    </td>
+
+    <td>
+        <%= product.description %>
+    </td>
+    <td>
+      <%= product.price %>
+    </td>
+
+    <td>
+        <%=  total_price %>
+
+
+    </td>
+  </tr>
+<% end %>
