@@ -1,8 +1,7 @@
 
 
+
 <% if product = Product.find_by(id: product_id) %>
-  <% item_total = product.price * quantity %>
-  <% @order_total += item_total %>
   <tr>
     <td>
       <%= image_tag product.image.tiny %>
@@ -22,7 +21,9 @@
     </td>
 
     <td>
-      <%= item_total %>
+        <%=  total_price %>
+
+
     </td>
   </tr>
 <% end %>

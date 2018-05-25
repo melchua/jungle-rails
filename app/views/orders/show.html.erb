@@ -18,16 +18,15 @@
         </tr>
       </thead>
       <tbody>
-        <% @order_total = 0 %>
         <% @order.line_items.each do |line_item| %>
-          <%= render 'line_item', product_id: line_item.product_id, quantity: line_item.quantity %>
-
+          <%= render 'line_item', product_id: line_item.product_id, quantity: line_item.quantity, total_price: line_item.total_price %>
         <% end %>
+
       </tbody>
       <tfoot>
         <tr>
           <th colspan="6">
-            TOTAL: <%= @order_total %>
+            TOTAL: <%= @order.total %>
           </th>
 
         </tr>
