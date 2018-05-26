@@ -132,5 +132,19 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+### Users
+
+puts "Creating Users"
+
+u1 = User.create({first_name: "Will", last_name: "Smith", email: "prince@bel.com", password_digest: "test"})
+u2 = User.create({first_name: "Joe", last_name: "Fresh", email: "joe@fresh.com", password_digest: "fresh"})
+
+### Reviews
+
+puts "Creating Reviews"
+
+r1 = Review.create({product_id: 1, user_id: 1, description: "Great stuff! Mega-great!", rating: 5})
+r2 = Review.create({product_id: 1, user_id: 1, description: "Really awesome!", rating: 4})
+r3 = Review.create({product_id: 1, user_id: 1, description: "Terrible!", rating: 1})
 
 puts "DONE!"
