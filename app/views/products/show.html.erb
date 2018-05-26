@@ -25,19 +25,9 @@
 
       </div>
 
-      <div>
-        <%= form_for [@product, @review] do |form| %>
-          <% if form.object.errors.any? %>
-            <div class="alert alert-danger">
-              <strong>The following errors prevented saving:</strong>
-              <ul>
-                <% form.object.errors.full_messages.each do |error| %>
-                  <li><%= error %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
 
+      <div>
+        <%= form_for :review, url: @product.id.to_s+"/reviews"  do |form| %>
           <div class="form-group">
             <%= form.label :description %>
             <%= form.text_field :description, class: "form-control" %>
@@ -49,20 +39,15 @@
           <%= form.select(:rating, [['*',1], ['**',2], ['***',3], ['****',4], ['*****',5]], {}, { :class => 'my_style_class' }) %>
 
           </div>
-
-
-
           <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
         <% end %>
-
       </div>
 
 
       <div class="reviews">
         <h2>Customer Reviews</h2>
-        <% @product.reviews.each do |review| %>
+        <% @product.reviews.order(id: :desc).each do |review| %>
           <% review.rating.times { %><span class="star"><%= fa_icon 'star' %></span> <%}  %> <br />
-      <%#    <%= Array.new(review.rating).map {'Y'}.join('')  %> <br />
           <%= review.user.first_name %> <%= review.user.last_name %> says:
           <%= review.description %> <br />
         <% end %>
