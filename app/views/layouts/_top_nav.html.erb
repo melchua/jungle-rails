@@ -51,6 +51,7 @@
              <li><%= link_to 'Logout', [:session], method: :delete %></li>
             <% else %>
               <li><%= link_to 'Login', [:new, :session] %></li>
+              <li><%= link_to 'Sign-up', new_user_path %></li>
             <% end %>
           </ul>
         </li>
